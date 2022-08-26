@@ -17,6 +17,10 @@ def user_input_features():
     features = pd.DataFrame(data, index=[0])
     return features
 
+def tr(request, filename):
+    com = 'ffmpeg -i "{source}" output_file.mpg'.format(source=filename)
+    subprocess.call(com, shell=True)
+
 iris = datasets.load_iris()
 X = iris.data
 Y = iris.target
